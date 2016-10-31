@@ -7,8 +7,8 @@
     <ProjectGuid>{0C2043B0-D6C6-4D96-9D42-9B82243F2405}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HW1Armin</RootNamespace>
-    <AssemblyName>HW1Armin</AssemblyName>
+    <RootNamespace>HW4Armin</RootNamespace>
+    <AssemblyName>HW4Armin</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,12 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=3.13.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.13.1\lib\net40\MathNet.Numerics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Ink, Version=6.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files\Common Files\Microsoft Shared\ink\Microsoft.Ink.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -83,6 +89,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ArrowFit.cs" />
+    <Compile Include="BoundingBox.cs" />
+    <Compile Include="CircleFit.cs" />
+    <Compile Include="CornerFinder.cs" />
+    <Compile Include="Dataset.cs" />
+    <Compile Include="EllipseFit.cs" />
+    <Compile Include="FeatureArea.cs" />
+    <Compile Include="Filtering.cs" />
+    <Compile Include="HW3\Gesture.cs" />
+    <Compile Include="HW3\NDollarParameters.cs" />
+    <Compile Include="HW3\NDollarRecognizer.cs" />
+    <Compile Include="HW3\PennyPincher.cs" />
+    <Compile Include="HW3\PointR.cs" />
+    <Compile Include="HW3\RectangleR.cs" />
+    <Compile Include="HW3\SizeR.cs" />
+    <Compile Include="HW3\Utils.cs" />
+    <Compile Include="LeastSquares.cs" />
+    <Compile Include="Line2D.cs" />
+    <Compile Include="ScratchFit.cs" />
+    <Compile Include="LineFit.cs" />
+    <Compile Include="LineSegmentIntersection.cs" />
+    <Compile Include="MachineRecognizer.cs" />
+    <Compile Include="HW3\Multistroke.cs" />
+    <Compile Include="MyStrokes.cs" />
+    <Compile Include="HW3\NBestList.cs" />
+    <Compile Include="HW3\PennyGesture.cs" />
+    <Compile Include="PerpendicularBisector.cs" />
+    <Compile Include="Point2D.cs" />
+    <Compile Include="PolyLineFit.cs" />
+    <Compile Include="PolyLineFit2.cs" />
+    <Compile Include="Recognizer.cs" />
+    <Compile Include="Rectangle2D.cs" />
+    <Compile Include="RepeatWindow.xaml.cs">
+      <DependentUpon>RepeatWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Segmentation.cs" />
+    <Compile Include="Statistics.cs" />
+    <Compile Include="Symbol.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="Vector2.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +141,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RepeatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -6,9 +6,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW1Armin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="371.752" Width="637.82">
+        Title="MainWindow" Height="526.649" Width="898.411">
     <Grid >
-        <InkCanvas Name="InkCanvas" StrokeCollected="InkCanvas_StrokeCollected" SelectionChanged="InkCanvas_SelectionChanged">
+        <InkCanvas Name="InkCanvas" StrokeCollected="InkCanvas_StrokeCollected" 
+                   SelectionChanged="InkCanvas_SelectionChanged" TouchDown="InkCanvas_TouchDown"
+                   TouchUp="InkCanvas_TouchUp" ManipulationDelta="InkCanvas_ManipulationDelta" 
+                   PreviewTouchDown="InkCanvas_PreviewTouchDown" PreviewTouchUp="InkCanvas_PreviewTouchUp" IsManipulationEnabled="True">
             <InkCanvas.Background>
                 <SolidColorBrush Color="BlanchedAlmond"/>
             </InkCanvas.Background>
@@ -25,14 +28,20 @@
         </InkCanvas>
         <Grid  VerticalAlignment="Top" Height="89" >
             <Border BorderBrush="Black" BorderThickness="1"/>
-            <Button x:Name="background_Button" Content="B" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="32" Click="background_Button_Click"/>
-            <Button x:Name="save_Button" Content="S" HorizontalAlignment="Left" Height="30" Margin="10,49,0,0" VerticalAlignment="Top" Width="32" Click="save_Button_Click"/>
-            <Button x:Name="load_Button" Content="L" HorizontalAlignment="Left" Height="30" Margin="47,49,0,0" VerticalAlignment="Top" Width="32" Click="load_Button_Click"/>
-            <Button x:Name="Analyze" Content="A" HorizontalAlignment="Left" Height="30" Margin="84,49,0,0" VerticalAlignment="Top" Width="32"/>
-            <Slider x:Name="size_Slider" Height="32" Margin="0,10,115,0" ValueChanged="size_Slider_ValueChanged" Minimum="1" Value="1" Maximum="20" VerticalAlignment="Top" HorizontalAlignment="Right" Width="111"/>
-            <xctk:ColorPicker x:Name="colorPicker" Margin="0,9,11,0" Height="32" HorizontalAlignment="Right" Width="99" VerticalAlignment="Top" SelectedColorChanged="colorPicker_SelectedColorChanged"/>
-            <xctk:ColorPicker x:Name="backGround_ColorPicker" Margin="47,10,0,0" Height="30" VerticalAlignment="Top" SelectedColorChanged="backGround_ColorPicker_SelectedColorChanged" HorizontalAlignment="Left" Width="99"/>
-            <TextBlock x:Name="textBlock" Height="50" Margin="150,283,0,-244" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom"/>
+            <Button x:Name="background_Button" Content="Background" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="103" Click="background_Button_Click"/>
+            <Button x:Name="save_Button" Content="Save" HorizontalAlignment="Left" Height="30" Margin="10,49,0,0" VerticalAlignment="Top" Width="63" Click="save_Button_Click"/>
+            <Button x:Name="load_Button" Content="Load" HorizontalAlignment="Left" Height="30" Margin="203,49,0,0" VerticalAlignment="Top" Width="61" Click="load_Button_Click"/>
+            <Button x:Name="repeat_Button" Content="Repeat" HorizontalAlignment="Left" Height="30" Margin="269,49,0,0" VerticalAlignment="Top" Width="67" Click="repeat_Button_Click"/>
+            <Label x:Name="label" Content="Size" Height="32" Width="50" Margin="396,12,176,45"/>
+            <Label x:Name="label_1" Content="Stylus:" Height="32" Width="50" Margin="346,12,226,45"/>
+            <Slider x:Name="size_Slider" Height="32" Margin="0,47,115,0" ValueChanged="size_Slider_ValueChanged" Minimum="1" Value="1" Maximum="20" VerticalAlignment="Top" HorizontalAlignment="Right" Width="111"/>
+            <xctk:ColorPicker x:Name="colorPicker" Margin="0,47,11,0" Height="32" HorizontalAlignment="Right" Width="99" VerticalAlignment="Top" SelectedColorChanged="colorPicker_SelectedColorChanged"/>
+            <xctk:ColorPicker x:Name="backGround_ColorPicker" Margin="118,9,0,0" Height="30" VerticalAlignment="Top" SelectedColorChanged="backGround_ColorPicker_SelectedColorChanged" HorizontalAlignment="Left" Width="99"/>
+            <TextBlock x:Name="textBlock" Height="110" Margin="150,0,0,-404" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="170"/>
+            <TextBlock x:Name="textBlock1" Height="110" Margin="328,0,392,-404" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="textBlock2" Height="110" Margin="0,0,216,-404" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="170"/>
+            <Label x:Name="label_Copy" Content="Color" Height="32" Width="50" Margin="512,12,60,45"/>
+            <Button x:Name="save_with_background_Button_Copy" Content="Save with Back" HorizontalAlignment="Left" Height="30" Margin="78,49,0,0" VerticalAlignment="Top" Width="120" Click="save_with_background_Button_Copy_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Margin="0,94,0,0" Width="147">
             <Border BorderBrush="Black" BorderThickness="1"/>
@@ -40,6 +49,10 @@
             <RadioButton x:Name="selectMode_RadioButton" Margin="10,30,10,0" Content="Select Mode" Height="15" VerticalAlignment="Top" Click="selectMode_RadioButton_Click" />
             <RadioButton x:Name="eraseStrokeMode_RadioButton" Margin="10,50,10,0" Content="Erase Stroke Mode" Height="15" VerticalAlignment="Top" Click="eraseStrokeMode_RadioButton_Click" />
             <RadioButton x:Name="erasePointMode_RadioButton" Margin="10,70,10,0" Content="Erase Point Mode" Height="15" VerticalAlignment="Top" Click="erasePointMode_RadioButton_Click" />
+            <Separator Margin="0,-102,0,0" Height="399" VerticalAlignment="Top" />
+            <Button x:Name="erase_all_Button" Margin="10,355,10,10" Content="Erase Everything" Click="erase_all_Button_Click"/>
+            <Button x:Name="group_Button" Margin="11,312,10,53.333" Content="Group Stroke" Click="group_Button_Click"/>
+            <Button x:Name="train_Button" Margin="10,269,11,96" Content="Trainer" Click="train_Button_Click"/>
         </Grid>
     </Grid>
 </Window>
